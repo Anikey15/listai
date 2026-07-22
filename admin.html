@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админ-панель — Листай</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-admin">
+  <header class="site-header site-header--solid">
+    <a class="logo" href="index.html">Листай</a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="catalog.html">Каталог</a>
+      <a href="index.html#about">О магазине</a>
+      <a href="index.html#contacts">Контакты</a>
+    </nav>
+  </header>
+
+  <main class="admin-page">
+    <div class="admin-header">
+      <div>
+        <p class="admin-eyebrow">Права администратора</p>
+        <h1>Управление публикациями</h1>
+        <p class="admin-lead">Снимите книгу с публикации — она исчезнет из каталога для посетителей. Вернуть можно в любой момент.</p>
+      </div>
+      <div class="admin-session" id="admin-session"></div>
+    </div>
+
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Книга</th>
+            <th>Автор</th>
+            <th>Статус</th>
+            <th>Действие</th>
+          </tr>
+        </thead>
+        <tbody id="admin-books-body"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Листай</p>
+  </footer>
+
+  <script src="books.js"></script>
+  <script src="auth.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
