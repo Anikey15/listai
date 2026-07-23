@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: listai
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: NODE_ENV
+        value: production
+      - key: ADMIN_LOGIN
+        value: admin
+      - key: SESSION_SECRET
+        generateValue: true
+      # Пароль админа берётся из data/admin_password.hash
+      # Стартовый пароль: listai2026
