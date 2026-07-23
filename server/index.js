@@ -242,6 +242,10 @@ app.post(
   }
 );
 
+app.get("/api/health", (req, res) => {
+  res.json({ ok: true, service: "listai" });
+});
+
 const publicDir = path.join(__dirname, "..");
 
 app.use((req, res, next) => {
@@ -261,9 +265,14 @@ app.use((req, res, next) => {
   return next();
 });
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(publicDir, "index.html"));
+});
+
 app.use(
   express.static(publicDir, {
     extensions: ["html"],
+    index: "index.html",
     setHeaders(res, filePath) {
       if (filePath.endsWith(".html")) {
         res.setHeader("Cache-Control", "no-store");
@@ -279,7 +288,7 @@ app.use((req, res) => {
   return res.status(404).send("Страница не найдена");
 });
 
-app.listen(PORT, () => {
-  console.log(`Листай запущен: http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Листай запущен на 0.0.0.0:${PORT}`);
   console.log("Открывайте сайт только через этот адрес (не через file://).");
 });
